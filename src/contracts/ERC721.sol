@@ -64,22 +64,22 @@ contract ERC721{
     }
 
     function transferFrom(address _from, address _to, uint256 _tokenId) public {
-        require(isApprovedOrOwner(msg.sender,_tokenId));
+        // require(isApprovedOrOwner(msg.sender,_tokenId));
         _transferFrom(_from,_to,_tokenId);
     }
  
-    function approve(address _to, uint256 tokenId)public {
-        address owner = ownerOf(tokenId);
-        require(_to!= owner, 'Error - approval to current owner');
-        require(msg.sender == owner,'Current caller is not the owner');
-        _tokenApprovals[tokenId]= _to;
-        emit Approval(owner, _to, tokenId);
-    }
+    // function approve(address _to, uint256 tokenId)public {
+    //     address owner = ownerOf(tokenId);
+    //     require(_to!= owner, 'Error - approval to current owner');
+    //     require(msg.sender == owner,'Current caller is not the owner');
+    //     _tokenApprovals[tokenId]= _to;
+    //     emit Approval(owner, _to, tokenId);
+    // }
 
-    function isApprovedOrOwner(address spender, uint256 tokenId) internal{
-        require(_exists(tokenId), 'token does not exit');
-        address owner = ownerOf(tokenId);
-        return(spender == owner);
-    }
+    // function isApprovedOrOwner(address spender, uint256 tokenId) internal{
+    //     require(_exists(tokenId), 'token does not exit');
+    //     address owner = ownerOf(tokenId);
+    //     return(spender == owner);
+    // }
 
 }
